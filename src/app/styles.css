@@ -1,0 +1,2292 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+:root{
+  --bg-main: #fefcf7;
+  --text-dark: #031322;
+  --accent-light: #9fc7db;
+  --cta: #f08916;
+
+  /* tunable overlap & spacing used for Section 2 */
+  --section-side-gap: 80px;   /* left/right padding for section-2 panels */
+  --image-overlap: 120px;     /* how far image pulls into the card (negative margin) */
+  --signature-shift: 100px;   /* horizontal signature shift to the right of center */
+}
+
+/* ---------- Base ---------- */
+body{
+  background-color: var(--bg-main);
+  font-family: "Poppins", sans-serif;
+  margin:0;
+  color:var(--text-dark);
+  overflow-x:hidden;
+}
+
+a { text-decoration: none; }
+
+/* ---------- NAVBAR ---------- */
+.main-nav{ padding-top:18px; padding-bottom:18px; position:relative; }
+.navbar { align-items:center; min-height:64px; }
+.navbar-brand {
+  font-family: "Dancing Script", cursive;
+  font-size: 30px !important;
+  font-weight:500;
+  font-style:normal;
+  letter-spacing:0.05em;
+  color:var(--text-dark);
+  margin:0 auto;
+}
+.navbar-brand-centered{
+  position:absolute;
+  left:40%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+  z-index:10;
+}
+
+.book-btn{
+  border-radius:999px;
+  padding:9px 26px;
+  border-width:1.6px;
+  font-size:0.9rem;
+  font-weight:500;
+  border-color:#1f2933;
+  color:#1f2933;
+  background:transparent;
+  box-shadow:0 3px 10px rgba(15,23,42,0.06);
+  white-space:nowrap;
+}
+.book-btn:hover{ background:#fff; color:#111827; }
+
+.navbar-nav .nav-link{
+  font-size:0.95rem;
+  font-weight:400;
+  color:#858088;
+  margin-left:28px;
+  padding:0;
+}
+.navbar-nav .nav-link:hover{ color:var(--text-dark); }
+
+.navbar-toggler{ border:none; box-shadow:none !important; }
+.navbar-toggler-icon {
+  background-image:none;
+  width:20px; height:2px; border-radius:999px;
+  background-color:#111827;
+  box-shadow:0 6px 0 0 #111827, 0 -6px 0 0 #111827;
+}
+
+@media (max-width:991.98px){
+  .book-btn{ display:none; }
+  .navbar-nav .nav-link{ margin-left:0; padding-block:8px; }
+  .navbar-brand{ margin-inline:auto; position:static; transform:none; text-align:center; }
+  .navbar-brand-centered{ position:static; transform:none; left:auto; top:auto; }
+}
+
+/* ---------- HERO ---------- */
+.hero-wrapper { margin-top:3rem; }
+.hero-fluid { width:100%; max-width:1800px; margin-inline:auto; padding-inline:40px; }
+.hero-grid { display:grid; grid-template-columns: repeat(12, 1fr); column-gap:20px; align-items:flex-start; }
+
+.hero-title{
+  font-family:"Playfair Display", serif;
+  font-size:clamp(4.5rem, 7vw + 2rem, 8.5rem); /* Increased base size */
+  line-height:0.85; 
+  font-weight:500; 
+  color:var(--text-dark);
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  position:relative;
+  z-index:10; /* Ensure title appears above image */
+}
+.hero-line{ 
+  display:inline-block; 
+  margin-right:0.5em;
+}
+.hero-main{ color:var(--text-dark); margin-right:.25em; }
+.accent{ color:var(--accent-light); font-style:italic; margin:0 .15em; }
+.accent-life{ 
+  font-weight:600; 
+  color:var(--accent-light); 
+  font-style:italic;
+}
+.accent-you{ 
+  position:relative; 
+  display:inline-block; 
+  transform:translate(-1.1rem,1.4rem); 
+  z-index:5; 
+  font-size:1.3em; /* Make "you" larger */
+  color:var(--accent-light); 
+  font-style:italic;
+  font-weight:600;
+}
+
+.hero-photo-inner{
+  background:#dfe1e5;
+  border-radius:56px;
+  overflow:hidden;
+  width:100%; max-width:620px; margin-top:-3rem; height:auto;
+}
+.hero-photo-inner img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.hero-right{ max-width:420px; margin-top:2rem; }
+.avatar-stack img{ width:34px; height:34px; border-radius:50%; object-fit:cover; margin-left:-10px; border:2px solid var(--bg-main); }
+.hero-subtext{ line-height:1.7; margin-top:.8rem; margin-bottom:1.6rem; color:var(--text-dark); }
+.btn-hero-cta{ 
+  background:#f08916 !important; 
+  border-color:#f08916 !important; 
+  color:#fff !important; 
+  padding:14px 32px; 
+  border-radius:999px; 
+  font-weight:500; 
+  font-size:1rem; 
+  box-shadow:0 10px 22px rgba(240,137,22,0.35); 
+  transition:all 0.3s ease;
+}
+.btn-hero-cta:hover{ 
+  background:#e07a0f !important; 
+  border-color:#e07a0f !important; 
+  color:#fff !important; 
+  transform:translateY(-2px); 
+  box-shadow:0 12px 28px rgba(240,137,22,0.45); 
+}
+
+@media (min-width:992px){
+  .hero-heading{ grid-column:1 / 13; max-width:100%; position:relative; z-index:10; }
+  .hero-photo{ grid-column:2 / 8; grid-row:2; margin-top:1rem; }
+  .hero-right{ grid-column:9 / 13; grid-row:2; margin-top:3.5rem; }
+  .hero-photo-inner{ height:479px; }
+}
+@media (max-width:991.98px){
+  .hero-grid{ display:block; }
+  .hero-title{ 
+    font-size:clamp(3.5rem, 8vw, 5.5rem); /* Increased mobile size */
+    flex-direction:column;
+  }
+  .hero-line{ margin-right:0; }
+  .accent-you{ transform:translate(-0.4rem,0.8rem); }
+  .hero-photo-inner{ margin-top:0; max-width:100%; height:360px; }
+  .hero-right{ margin-top:2.4rem; max-width:100%; }
+}
+@media (max-width:575.98px){
+  .hero-title{ 
+    font-size:clamp(2.8rem, 10vw, 4rem); /* Increased small screen size */
+  }
+  .hero-photo-inner{ height:280px; }
+}
+
+/* ---------- SECTION 2 TOP (dark panel) ---------- */
+.section-2{
+  background:#0f1d2e;
+  color:#fff;
+  border-radius:40px;
+  padding:96px 0 104px;
+  margin:48px auto 0; /* Use auto for horizontal centering */
+  max-width:calc(100% - 2rem); /* Ensure some margin on small screens */
+  position:relative;
+  overflow:visible;
+}
+.section-2 .container { max-width:1400px; }
+
+.section-2-top{ 
+  display:grid; 
+  grid-template-columns:1fr 1fr; 
+  gap:120px; /* Increased gap for better separation */
+  align-items:center; /* Center both columns vertically */
+  padding:0 2rem; /* Add horizontal padding for better spacing */
+}
+
+/* Left column styling - right aligned content */
+.section-2-left {
+  text-align: right;
+}
+
+.section-2-title{
+  font-family:"Playfair Display", serif;
+  font-size:clamp(2.8rem, 5vw, 4.5rem); /* Reduced for single line fit */
+  line-height:1.02; 
+  font-weight:600; /* Increased weight for better presence */
+  margin:0 0 24px; /* Increased bottom margin */
+  color:#fff;
+  text-align: right; /* Explicit right alignment */
+}
+.section-2-sub{ 
+  color:#d1d7df; 
+  max-width:520px; 
+  font-size:1.1rem; /* Slightly larger for better readability */
+  line-height:1.6; 
+  margin:0 0 0 auto; /* Auto left margin to push content to the right */
+  font-weight:400;
+  text-align: right; /* Explicit right alignment */
+}
+
+.section-2-right{ 
+  display:flex; 
+  flex-direction:column; 
+  gap:32px; /* Reduced gap for tighter spacing between fact items */
+  padding-left:0; /* Removed left padding for better alignment */
+}
+.fact-item{ 
+  display:grid; 
+  grid-template-columns:auto 1fr; 
+  gap:24px; /* Increased gap between number and text */
+  align-items:center;
+  padding:0;
+}
+.fact-number{ 
+  font-family:"Playfair Display", serif; 
+  font-size:90px; /* Increased size for better visibility */
+  color:var(--accent-light); 
+  line-height:1; 
+  font-weight:500;
+  opacity:0.9; /* Slight transparency for sophistication */
+}
+.fact-text{ 
+  color:rgba(255,255,255,0.94); /* Slightly more opaque for better readability */
+  font-size:0.90rem; /* Consistent sizing */
+  line-height:1.35; /* Better line spacing */
+  font-weight:400;
+  max-width:100%;
+}
+
+.fact-text strong {
+  color:#fff; /* Make headings fully white for contrast */
+  font-weight:600;
+  display:block;
+  margin-bottom:4px;
+}
+
+/* ---------- SECTION 2 BOTTOM (light background wrapper) ---------- */
+.section-2-bottom-wrapper{
+  background:var(--bg-main);
+  padding:88px 0 120px;
+  margin:32px auto 0; /* Use auto for horizontal centering */
+  max-width:calc(100% - 2rem); /* Ensure some margin on small screens */
+  position:relative;
+  overflow:hidden;
+}
+.section-2-bottom-wrapper .container { max-width:1400px; }
+
+.section-2-bottom{ 
+  display:flex;
+  justify-content:center;
+  width:100%;
+  margin:0 auto;
+  position:relative;
+}
+
+/* Content wrapper for centered card + image group */
+.section-2-content {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+
+/* BIO card */
+.bio-card{
+  background:#0f1d2e; color:#fff;
+  border-radius:48px; box-shadow:0 18px 48px rgba(0,0,0,0.14);
+  padding:56px 60px 56px 46px;
+  width:calc(55% + var(--image-overlap) * 0.2); 
+  max-width:680px; 
+  position:relative; 
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.bio-title{ 
+  font-family:"Playfair Display", serif; 
+  font-size:2.2rem; 
+  margin:0 0 18px;
+  position:relative;
+  z-index:4; /* Ensure title stays above image */
+  max-width:70%; /* Consistent with other text elements */
+}
+.bio-text{ 
+  font-size:.98rem; 
+  line-height:1.68; 
+  color:rgba(255,255,255,0.95); 
+  margin:0 0 30px; 
+  max-width:70%; /* Limit width to prevent overlap with image */
+  position:relative;
+  z-index:4; /* Ensure text stays above image */
+}
+.section2-cta{ 
+  background:var(--accent-light); 
+  color:var(--text-dark); 
+  padding:12px 28px; 
+  font-weight:500; 
+  display:inline-block;
+  max-width:70%; /* Match text width to prevent overlap */
+  text-align:center;
+  transition: all 0.2s ease;
+  position:relative;
+  z-index:4; /* Ensure button stays above image */
+}
+.section2-cta:hover {
+  background:var(--cta);
+  color:#fff;
+  transform: translateY(-1px);
+}
+
+/* Floating image wrapper - overlaps using negative margin */
+.bio-image-wrapper{
+  width:45%; 
+  max-width:520px;
+  margin-left:calc(var(--image-overlap) * -1);
+  z-index:3;
+  flex-shrink:0;
+  position:relative;
+  display: flex;
+  flex-direction: column; /* This ensures items stack vertically */
+  justify-content: center; /* This will center items along the main axis (vertical in this case) */
+  align-items: center; /* This will center items along the cross axis (horizontal in this case, useful if you also want horizontal centering) */
+}
+.bio-image{ border-radius:48px; overflow:hidden; box-shadow:0 22px 60px rgba(0,0,0,0.20); background:#ddd; }
+.bio-image img{ width:100%; height:440px; object-fit:cover; display:block; }
+
+/* Signature: script font positioned at bottom right with rotation */
+.bio-signature{
+  position:absolute;
+  bottom:43px; /* Moved up from bottom edge */
+  right:45%; /* Position from right for better overlap */
+  transform:rotate(-12deg); /* Reduced rotation for more natural look */
+  transform-origin:center;
+  font-family:'Dancing Script', 'Great Vibes', cursive; /* Script fonts */
+  font-size:4.8rem; /* Slightly larger for impact */
+  font-weight:600; /* Bold script for better visibility */
+  color:#fff; /* Brighter blue from CSS variable */
+  pointer-events:none;
+  z-index:4;
+  text-shadow:0 6px 20px rgba(0,0,0,0.25); /* Enhanced shadow for depth */
+  white-space:nowrap;
+  letter-spacing:0.05em; /* Increased spacing for script readability */
+  opacity:0.9; /* Slight transparency for sophistication */
+}
+
+/* ensure radii match */
+.section-2, .bio-card, .bio-image{ border-radius:48px; }
+
+/* ---------- Responsive tuning ---------- */
+@media (max-width:1200px){
+  :root{ --image-overlap:80px; --signature-shift:80px; }
+  .bio-image img{ height:420px; }
+  .bio-signature{ 
+    font-size:4.2rem; 
+    bottom:15px; 
+    right:12%; 
+    transform:rotate(-10deg);
+  }
+  .section-2-content { max-width:1000px; }
+  .bio-card{ 
+    width:calc(58% + var(--image-overlap) * 0.15);
+  }
+  .bio-image-wrapper{ 
+    width:42%; 
+    max-width:480px;
+  }
+  .bio-text, .section2-cta, .bio-title { max-width:65%; }
+}
+
+@media (max-width:1024px){
+  :root{ --image-overlap:40px; --signature-shift:60px; }
+  .section-2-content { max-width:900px; }
+  .bio-card{ 
+    width:calc(62% + var(--image-overlap) * 0.1);
+  }
+  .bio-image-wrapper{ 
+    width:40%; 
+    max-width:380px;
+  }
+  .bio-text, .section2-cta, .bio-title { max-width:60%; }
+}
+
+@media (max-width:992px){
+  .section-2-top{ 
+    grid-template-columns:1fr; 
+    gap:48px; /* Increased gap for better mobile spacing */
+    padding:0 1.5rem; /* Better mobile padding */
+  }
+  .section-2-left {
+    text-align: center; /* Center alignment for mobile */
+  }
+  .section-2{ 
+    padding:64px 0 72px; /* Reduced padding for mobile */
+    margin:24px auto 0;
+    border-radius:32px; /* Smaller border radius for mobile */
+  }
+  .section-2-title{
+    font-size:clamp(2.2rem, 6vw, 3.5rem); /* Adjusted for shorter title */
+    margin-bottom:20px;
+    text-align:center; /* Center align title on mobile */
+  }
+  .section-2-sub{
+    font-size:1rem;
+    line-height:1.6;
+    text-align:center; /* Center align subtitle on mobile */
+    max-width:100%;
+    margin: 0 auto; /* Center the content block on mobile */
+  }
+  .fact-item{
+    gap:20px; /* Better mobile spacing between number and text */
+    padding:0;
+    text-align:left; /* Keep facts left-aligned for readability */
+  }
+  .fact-number{
+    font-size:2.6rem; /* Increased mobile number size */
+  }
+  .section-2-bottom-wrapper{
+    padding:64px 0 80px; /* Better mobile padding */
+    margin:24px auto 0;
+  }
+  .section-2-bottom{ 
+    flex-direction:column;
+    align-items:center;
+    gap:32px;
+    padding:0 1rem;
+  }
+  .bio-card{ 
+    width:100%; 
+    max-width:500px;
+    padding:48px 36px; /* Better mobile padding */
+    border-radius:32px;
+    margin:0;
+    text-align:center; /* Center align content on mobile */
+    order:2; /* Show card after image */
+  }
+  .bio-image-wrapper{ 
+    width:100%;
+    max-width:380px;
+    margin:0;
+    order:1; /* Show image first on mobile */
+  }
+  .bio-image img{ 
+    height:320px; /* Better mobile image height */
+    border-radius:24px; 
+  }
+  .bio-text, .section2-cta, .bio-title { 
+    max-width:100%;
+    z-index:auto;
+  }
+  .bio-title{
+    font-size:2rem; /* Better mobile title size */
+    margin-bottom:20px;
+  }
+  .bio-text{
+    font-size:1rem;
+    line-height:1.65;
+    margin-bottom:32px;
+  }
+  .section2-cta{
+    padding:14px 32px; /* Better mobile button padding */
+    font-size:1rem;
+    width:auto;
+    display:inline-block;
+    margin:0 auto; /* Center button */
+  }
+  .bio-signature{
+    position:absolute;
+    bottom:16px;
+    right:16px;
+    transform:rotate(-15deg);
+    font-size:2.4rem;
+    font-weight:500;
+    color:var(--accent-light);
+    opacity:0.8;
+  }
+}
+
+@media (max-width:480px){
+  .section-2{
+    padding:48px 0 56px;
+    margin:16px auto 0;
+    border-radius:24px;
+  }
+  .section-2-top{
+    padding:0 1rem;
+    gap:36px;
+  }
+  .section-2-title{
+    font-size:clamp(2rem, 8vw, 2.8rem); /* Further reduced for very small screens */
+    margin-bottom:16px;
+  }
+  .section-2-sub{
+    font-size:0.95rem;
+    line-height:1.6;
+  }
+  .fact-number{
+    font-size:2.2rem; /* Increased small mobile size */
+  }
+  .fact-text{
+    font-size:0.9rem;
+    line-height:1.6;
+  }
+  .section-2-bottom-wrapper{
+    padding:48px 0 64px;
+    margin:16px auto 0;
+  }
+  .section-2-bottom{
+    padding:0 0.75rem;
+    gap:28px;
+  }
+  .bio-card{
+    padding:36px 28px;
+    border-radius:24px;
+    max-width:100%;
+  }
+  .bio-title{
+    font-size:1.8rem;
+    margin-bottom:16px;
+  }
+  .bio-text{
+    font-size:0.95rem;
+    line-height:1.6;
+    margin-bottom:28px;
+  }
+  .bio-image img{ 
+    height:280px; 
+    border-radius:20px;
+  }
+  .bio-signature{ 
+    font-size:2rem;
+    bottom:12px;
+    right:12px;
+    transform:rotate(-12deg);
+  }
+  .section2-cta{
+    padding:12px 28px;
+    font-size:0.95rem;
+  }
+}
+
+/* Bootstrap-standard spacing utilities */
+.px-lg-5 { padding-left: 3rem !important; padding-right: 3rem !important; }
+
+/* Responsive section margins for proper centering */
+@media (min-width: 576px) {
+  .section-2, .section-2-bottom-wrapper {
+    max-width:calc(100% - 3rem); /* Balanced margins on medium screens */
+  }
+}
+
+@media (min-width: 992px) {
+  .section-2, .section-2-bottom-wrapper {
+    max-width:calc(100% - 6rem); /* Balanced margins on large screens */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ========= SECTION 3 — NEW LAYOUT ========= */
+
+/* Section 3 base styles */
+.section-3 {
+  background: var(--bg-main); /* Use page background, no blue panel */
+  padding: 80px 0;
+}
+
+/* Main wrapper - uses CSS Grid on desktop, flexbox on mobile */
+.section3-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Common accent styling */
+.section3-accent {
+  color: var(--accent-light);
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* ========= DESKTOP LAYOUT (≥992px) ========= */
+@media (min-width: 992px) {
+  .section3-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); /* Two content columns */
+    grid-template-rows: auto auto;
+    column-gap: clamp(2rem, 5vw, 4rem); /* Controlled spacing between columns */
+    row-gap: 0;
+    align-items: start;
+    min-height: 400px;
+  }
+  
+  /* Main headline - spans both columns on row 1 */
+  .section3-headline {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    padding-right: 1.5rem; /* Slightly reduced padding */
+    align-self: start;
+    margin-bottom: 1rem;
+  }
+  
+  .section3-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(3.5rem, 4.8vw, 5.4rem); /* Optimized for reliable 2 lines */
+    line-height: 0.92;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin: 0;
+    letter-spacing: -0.02em;
+    max-width: 100%; /* Use full available width */
+  }
+  
+  /* Image block with number - positioned in column 1, row 2 */
+  .section3-image-block {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    padding-left: 2.5rem; /* Reduced space for closer "04" number */
+  }
+  
+  .section3-number {
+    position: absolute;
+    left: -4rem; /* Moved closer to image */
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: "Playfair Display", serif;
+    font-size: 4rem;
+    color: var(--accent-light);
+    line-height: 1;
+    font-weight: 500;
+  }
+  
+  .section3-media {
+    margin: 0;
+    position: relative;
+  }
+  
+  .section3-image-container {
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    background: #e9edf0;
+  }
+  
+  .section3-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Right content - positioned in column 2, row 2 */
+  .section3-right-block {
+    grid-column: 2 / 3;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: right;
+    padding-left: 0; /* Reduced from 1rem to bring content closer to image */
+    align-self: center; /* Center the whole block vertically relative to the image */
+    max-width: 380px; /* Constrain width to move content closer to center */
+    margin-left: auto; /* Push the block to the right edge while respecting max-width */
+  }
+  
+  .section3-subtitle {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2rem, 3.2vw, 2.8rem);
+    line-height: 1.02;
+    color: var(--text-dark);
+    margin: 0;
+    margin-top: -20px; /* Pull subtitle up to align closer with image middle */
+    text-align: right; /* Restore right alignment */
+  }
+  
+  .section3-note {
+    color: #bac5cd;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    margin: 0; /* Remove margin for natural flow */
+    max-width: 160px; /* Narrow caption block */
+    text-align: left; /* Left align as requested */
+    
+  }
+  
+  .section3-cta-desktop {
+    margin-left: auto; /* Align with subtitle and note */
+  }
+  
+  .section3-btn {
+    display: inline-block;
+    background: transparent;
+    color: var(--text-dark);
+    border: 1.5px solid rgba(0,0,0,0.2);
+    border-radius: 9px;
+    padding: 10px 24px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .section3-btn:hover {
+    background: var(--text-dark);
+    color: var(--bg-main);
+    border-color: var(--text-dark);
+  }
+  
+  /* Hide mobile CTA on desktop */
+  .section3-cta-mobile {
+    display: none;
+  }
+}
+
+/* ========= TABLET LAYOUT (768px - 991px) ========= */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .section3-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .section3-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(3rem, 5vw, 4rem);
+    line-height: 1;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin: 0 0 2rem 0;
+    text-align: center;
+  }
+  
+  .section3-image-block {
+    position: relative;
+    text-align: center;
+    padding: 0 3rem;
+  }
+  
+  .section3-number {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    color: var(--accent-light);
+    line-height: 1;
+  }
+  
+  .section3-image {
+    height: 280px;
+    border-radius: 24px;
+  }
+  
+  .section3-right-block {
+    text-align: center;
+  }
+  
+  .section3-subtitle {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section3-note {
+    margin: 1rem auto;
+    max-width: 400px;
+  }
+  
+  .section3-cta-desktop {
+    display: none;
+  }
+  
+  .section3-cta-mobile {
+    display: block;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  
+  .section3-btn-mobile {
+    display: inline-block;
+    background: transparent;
+    color: var(--text-dark);
+    border: 1.5px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    padding: 14px 32px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* ========= MOBILE LAYOUT (≤767px) ========= */
+@media (max-width: 767.98px) {
+  .section-3 {
+    padding: 48px 0;
+  }
+  
+  .section3-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Mobile: headline first, full width */
+  .section3-headline {
+    order: 1;
+  }
+  
+  .section3-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.2rem, 6vw, 3rem);
+    line-height: 1.02;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* Mobile: image second */
+  .section3-image-block {
+    order: 2;
+    position: relative;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  
+  .section3-number {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    font-family: "Playfair Display", serif;
+    font-size: 2.2rem;
+    color: var(--accent-light);
+    line-height: 1;
+  }
+  
+  .section3-media {
+    margin: 0;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .section3-image-container {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  }
+  
+  .section3-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+  }
+  
+  /* Mobile: right content third */
+  .section3-right-block {
+    order: 3;
+    text-align: center;
+  }
+  
+  .section3-subtitle {
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem;
+    line-height: 1.1;
+    color: var(--text-dark);
+    margin: 0 0 1rem 0;
+  }
+  
+  .section3-note {
+    color: #9ea7ad;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 1rem auto 2rem;
+    max-width: 320px;
+  }
+  
+  /* Hide desktop CTA */
+  .section3-cta-desktop {
+    display: none;
+  }
+  
+  /* Show mobile CTA */
+  .section3-cta-mobile {
+    order: 4;
+    display: block;
+    text-align: center;
+  }
+  
+  .section3-btn-mobile {
+    display: inline-block;
+    background: transparent;
+    color: var(--text-dark);
+    border: 1.5px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    padding: 14px 24px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* ========= SMALL MOBILE (≤480px) ========= */
+@media (max-width: 480px) {
+  .section3-title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+  }
+  
+  .section3-number {
+    font-size: 1.9rem;
+  }
+  
+  .section3-image {
+    height: 200px;
+  }
+  
+  .section3-subtitle {
+    font-size: 1.6rem;
+  }
+  
+  .section3-note {
+    font-size: 0.85rem;
+    max-width: 100%;
+  }
+}
+
+
+/* SECTION 4 — Dynamic Accordion with Header Styling
+   Designed to work as a single accordion where opened items display content in header format.
+   Any expanded button will look like the main header.
+*/
+
+.section-4 { background: transparent; }
+
+/* --- IMAGE --- */
+.section4-image img{
+  width: 100%;
+  height: auto;
+  max-width: 420px;           /* desktop card size */
+  border-radius: 28px;        /* matches large rounded corners */
+  object-fit: cover;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  display: block;
+}
+
+/* Make any expanded accordion button look like the "main" header */
+#section4Accordion .accordion-button:not(.collapsed) {
+  /* same visual signature as your .section4-main-btn */
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.6rem, 4vw, 4.8rem);
+  line-height: 0.98;
+  color: var(--text-dark);
+  font-weight: 500;
+  padding: 12px 0;          /* tighter vertical padding like a header */
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+/* hide the small svg chevron on the expanded button */
+#section4Accordion .accordion-button:not(.collapsed) .acc-icon {
+  display: none;
+}
+
+/* show an inline caret (▴) for the expanded header using a pseudo element.
+   We place it at the end of the button, similar to your header caret. */
+#section4Accordion .accordion-button:not(.collapsed)::after {
+  content: "▴";
+  margin-left: 12px;
+  font-size: .95rem;
+  color: rgba(0,0,0,0.35);
+  transform: translateY(-6px);
+  display: inline-block;
+  /* remove bootstrap's default pseudo (in case) */
+  background-image: none !important;
+}
+
+/* Ensure the non-expanded buttons keep the smaller look */
+#section4Accordion .accordion-button.collapsed {
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: rgba(3,19,34,0.95);
+  padding: 16px 1rem;
+}
+
+/* preserve accessibility/high contrast focus */
+#section4Accordion .accordion-button:focus {
+  outline: 3px solid rgba(159,199,219,0.18);
+  outline-offset: 3px;
+}
+
+/* keep the header paragraph area styling (unchanged) */
+.section4-header-body { padding: 0 0 24px 0; background: transparent; }
+.section4-lead-dynamic { color: rgba(3,19,34,0.65); font-size: .95rem; line-height:1.6; max-width:75ch; margin-bottom:0; }
+
+/* --- ACCORDION STRUCTURE --- */
+/* Remove default heavy border; keep large airy spacing */
+.section4-accordion .accordion-item {
+  border: 0;
+  background: transparent;
+}
+
+/* collapse icons alignment — neutral color for collapsed buttons */
+#section4Accordion .accordion-button.collapsed .acc-icon {
+  color: rgba(3,19,34,0.45);
+  transition: transform .18s ease, color .18s ease;
+  transform: rotate(0deg);
+}
+
+/* Spacing between items */
+.section4-accordion .accordion-item + .accordion-item {
+  margin-top: 6px;
+}
+
+/* small subtle horizontal rule (desktop) below the section (like screenshot) */
+@media (min-width: 992px) {
+  .section-4 { padding-bottom: 1.6rem; }
+  .section-4:after {
+    content: "";
+    display:block;
+    margin-top: 2.8rem;
+    height: 1px;
+    width: 100%;
+    background: rgba(3,19,34,0.06);
+  }
+}
+
+/* ---------- RESPONSIVE BEHAVIOR ---------- */
+/* Desktop: left text block vertically aligns with image center (handled by row align-items-center) */
+/* We used order to put the image on the right on desktop but first on mobile. */
+
+/* Tweak sizes on larger screens */
+@media (min-width: 1200px) {
+  .section4-image img { max-width: 520px; height: 320px; }
+  #section4Accordion .accordion-button:not(.collapsed) { font-size: 3.2rem; }
+}
+
+/* small responsive tweaks (ensure expanded font is smaller on mobile) */
+@media (max-width: 991.98px) {
+  .section-4 { padding-top: 1.6rem; padding-bottom: 1.6rem; }
+  .section4-image img { max-width: 420px; height: 260px; }
+  #section4Accordion .accordion-button:not(.collapsed) { font-size: clamp(1.9rem, 5vw, 2.6rem); }
+  #section4Accordion .accordion-button.collapsed { font-size: 1.05rem; }
+  .section4-lead-dynamic { font-size: 0.95rem; }
+}
+
+/* Mobile: stacked layout with image first */
+@media (max-width: 575.98px) {
+  .section4-image img { width: 100%; height: 200px; border-radius: 20px; }
+  .section4-lead-dynamic { font-size: 0.9rem; }
+  .section4-header-body { font-size: 0.95rem; }
+}
+
+
+
+
+
+
+
+/* SECTION 5 — Luxury Hero Headline Styles */
+:root {
+  --s5-max-width: 1280px;
+  --s5-card-radius: 22px;
+  --s5-accent-blue: #9fc7db;
+}
+
+/* The main hero card container */
+.section-5-card {
+  width: 100%;
+  max-width: none;
+  height: 580px; /* Increased height for more dramatic presence */
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  box-shadow: none;
+  background-color: #07121a; /* Dark fallback while image loads */
+  margin: 0;
+}
+
+/* Background image positioned to keep subject on right */
+.section-5-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right 40%; /* Keep face/subject to the right */
+  display: block;
+  z-index: 1;
+}
+
+/* Dark blue gradient overlay for text legibility */
+.section-5-overlay {
+  position: absolute;
+  inset: 0;
+  /* Strong dark blue gradient from left to transparent right */
+  background: linear-gradient(90deg,
+              rgba(7,18,26,0.95) 0%,
+              rgba(7,18,26,0.85) 20%,
+              rgba(7,18,26,0.65) 45%,
+              rgba(7,18,26,0.35) 70%,
+              rgba(7,18,26,0.15) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Left content container - vertically centered, occupies left half */
+.section-5-content-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%; /* Left half only for desktop */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the content */
+  align-items: flex-end; /* Right align within the left half */
+  padding: 4rem 3rem 4rem 5.5rem; /* Moved slightly left (reduced left padding) */
+  z-index: 10;
+}
+
+/* Main headline container - luxury serif styling */
+.section-5-title-lines {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.8rem, 5.5vw, 3rem); /* Reduced to ~48px (3rem = 48px) */
+  line-height: 1.05; /* Tighter line-height for premium feel */
+  font-weight: 500; /* Not too heavy, elegant */
+  color: #ffffff;
+  margin: 0;
+  text-align: right;
+  letter-spacing: -0.015em; /* Slight negative tracking for premium look */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%; /* Use full width of container */
+  max-width: 50rem; /* Elegant max-width for better line breaks */
+}
+
+/* Individual line spans - prevent text wrapping within each line */
+.section-5-title-lines span {
+  display: block;
+  white-space: nowrap; /* Prevent wrapping within individual lines */
+  width: auto;
+}
+
+/* Accent words styling - soft blue italic */
+.section-5-accent {
+  color: #87ceeb; /* Soft blue color */
+  font-style: italic;
+  font-weight: inherit; /* Inherit weight from parent */
+  line-height: inherit; /* Same line height as surrounding text */
+  vertical-align: baseline; /* Prevent vertical shifting */
+}
+
+/* Desktop-specific adjustments for proper 3-line layout */
+@media (min-width: 992px) {
+  .section-5-content-left {
+    width: 80%; /* Set to 80% as requested */
+    max-width: 52rem; /* Ideal max-width for elegant line breaks */
+    padding: 4rem 3rem 4rem 5rem; /* Fine-tuned left positioning */
+  }
+  
+  .section-5-title-lines {
+    width: 100%; /* Use full width of the content container */
+    max-width: 50rem; /* Refined max-width for optimal balance */
+    line-height: 1.02; /* Even tighter for premium desktop look */
+  }
+  
+  .section-5-title-lines span {
+    white-space: nowrap; /* Ensure each line stays as one line on desktop */
+  }
+}
+
+/* Individual line styling - consistent spacing */
+.section-5-line-1,
+.section-5-line-2,
+.section-5-line-3 {
+  display: block;
+  margin: 0; /* Remove default margins */
+  line-height: inherit; /* Use parent line-height */
+}
+
+/* Subtle spacing between lines */
+.section-5-line-1 {
+  margin-bottom: 0.05em;
+}
+
+.section-5-line-2 {
+  margin-bottom: 0.05em;
+}
+
+.section-5-line-3 {
+  margin-bottom: 0;
+}
+
+/* Accent word styling - light blue and italic for elegance */
+.section-5-accent {
+  color: var(--s5-accent-blue);
+  font-style: italic;
+  font-weight: 600;
+  /* Subtle text shadow for better contrast on light backgrounds */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Mobile responsive design */
+@media (max-width: 767.98px) {
+  .section-5-card {
+    height: 480px; /* Shorter on mobile */
+  }
+  
+  .section-5-content-left {
+    width: 100%; /* Full width on mobile */
+    padding: 3rem 2rem; /* Reduce padding on mobile */
+    text-align: center; /* Center align on mobile */
+    align-items: center;
+  }
+  
+  .section-5-eyebrow {
+    text-align: center;
+    font-size: 0.7rem;
+    max-width: none;
+    margin-bottom: 1rem;
+  }
+  
+  .section-5-title-lines {
+    font-size: clamp(2.2rem, 8vw, 3.2rem); /* Smaller but readable on mobile */
+    text-align: center;
+    align-items: center;
+    line-height: 1.15; /* Slightly looser on mobile for readability */
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .section-5-content-left {
+    padding: 3rem 2rem 3rem 4rem;
+  }
+  
+  .section-5-title-lines {
+    font-size: clamp(3rem, 5.5vw, 4.5rem);
+  }
+}
+
+/* eyebrow positioned below the word "feeling" with responsive width - DESKTOP/TABLET ONLY */
+@media (min-width: 768px) {
+  .section-5-eyebrow {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+    font-weight: 600;
+    width: clamp(90px, 12vw, 114px); /* responsive width with desktop target of 114px */
+    display: block; /* ensure block display */
+    text-align: left; /* override any inherited alignment */
+    /* Position absolutely below "feeling" on desktop */
+    position: absolute;
+    top: clamp(2.8rem, 5.5vw, 4.5rem); /* responsive positioning based on title size */
+    left: clamp(8rem, 16vw, 12rem); /* position approximately under "feeling" */
+    z-index: 4;
+  }
+}
+
+/* Base mobile eyebrow styles (overridden by desktop media query above) */
+.section-5-eyebrow {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+  display: block;
+  text-align: left;
+}
+
+/* main headline — serif, large and responsive with right text alignment */
+.section-5-title {
+  font-family: "Playfair Display", serif;
+  margin: 0;
+  color: #fff;
+  line-height: 0.94;             /* tight lines to match reference wrap */
+  font-weight: 500;
+  font-size: clamp(3.2rem, 6vw, 6.4rem); /* larger clamp for reference scale */
+  letter-spacing: -0.01em;
+  hyphens: none;
+  text-align: right;             /* right alignment as requested */
+  max-width: min(1161px, 100%);  /* use full container width, cap at 1161px */
+  width: 100%;                   /* take full available width */
+  display: block;                /* ensure block display */
+  position: relative;            /* create positioning context for eyebrow */
+}
+
+/* accent word style (pale blue & italic) */
+.section-5-accent {
+  color: var(--s5-accent-blue);
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Prevent accidental selection color being very bright while testing */
+.section-5-card, .section-5-content, .section-5-title, .section-5-eyebrow {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+}
+::selection { background: rgba(159,199,219,0.28); } /* gentler selection color */
+
+/* -------- Responsive Tuning -------- */
+@media (min-width: 1400px) {
+  .section-5-card { height: 560px; border-radius: 28px; }
+  .section-5-content { left: 7.2%; max-width: 75%; }
+  .section-5-title { 
+    font-size: clamp(4rem, 4.6vw, 7.2rem); 
+    line-height: 0.92;
+    max-width: 1161px; /* full target width on very large screens */
+  }
+  .section-5-eyebrow { 
+    width: 114px; /* fixed width on large screens */
+    top: 11.8rem; /* precise positioning for large fonts */
+    left: 14rem; /* adjusted for larger screen */
+    font-size: 0.82rem; /* slightly larger on big screens */
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .section-5-card { height: 520px; border-radius: 24px; }
+  .section-5-content { left: 7%; max-width: 70%; }
+  .section-5-title { 
+    font-size: clamp(3.6rem, 5vw, 6.4rem);
+    max-width: min(1000px, 100%); /* use full container width */
+  }
+  .section-5-eyebrow { 
+    width: clamp(100px, 10vw, 114px); /* slightly smaller range */
+    top: 14.2rem; /* adjusted for medium-large fonts */
+    left: 21rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .section-5-card { height: 480px; border-radius: 22px; }
+  .section-5-content { left: 6%; max-width: 75%; }
+  .section-5-title { 
+    font-size: clamp(2.8rem, 5.2vw, 4.6rem); 
+    line-height: 0.98;
+    max-width: min(800px, 100%); /* use full container width */
+  }
+  .section-5-eyebrow { 
+    width: clamp(85px, 8vw, 100px); /* tablet-friendly sizing */
+    top: 3.6rem; /* adjusted for tablet fonts */
+    left: 10rem;
+  }
+}
+
+/* Mobile: portrait card, taller & wider text column */
+@media (max-width: 767.98px) {
+  .section-5 {
+    padding: 20px 16px !important; /* Add container padding for mobile */
+  }
+  .section-5-card {
+    height: 480px; /* Fixed height instead of dynamic calc */
+    max-width: 100%;
+    border-radius: 20px;
+    margin: 0 auto; /* Center the card */
+  }
+  .section-5-bg { 
+    object-position: center 40%; /* Better mobile image positioning */
+  }
+  .section-5-overlay {
+    background: linear-gradient(180deg,
+                rgba(3,19,34,0.85) 0%,
+                rgba(3,19,34,0.65) 30%,
+                rgba(3,19,34,0.45) 60%,
+                rgba(3,19,34,0.25) 100%);
+  }
+  .section-5-content {
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%); /* Proper centering */
+    max-width: 84%; /* Better mobile width */
+    padding: 20px 0; /* Add some internal padding */
+  }
+  .section-5-eyebrow { 
+    font-size: 0.7rem; 
+    width: auto; /* Let it size naturally on mobile */
+    max-width: 280px; /* Reasonable max width */
+    text-align: left !important; 
+    /* Reset positioning for mobile - use normal document flow */
+    position: static;
+    margin-bottom: 16px; /* Space below eyebrow */
+    display: block;
+    line-height: 1.3;
+  }
+  .section-5-title { 
+    font-size: clamp(1.8rem, 7vw, 2.8rem); 
+    line-height: 1.1;
+    text-align: left !important; 
+    max-width: 100%;
+    margin-top: 0; /* Remove any default margin */
+  }
+}
+
+/* very small phones */
+@media (max-width: 420px) {
+  .section-5 {
+    padding: 16px 12px !important; /* Tighter padding for small screens */
+  }
+  .section-5-card { 
+    border-radius: 16px; 
+    height: 420px; /* Shorter height for small screens */
+  }
+  .section-5-content { 
+    max-width: 88%; 
+    left: 6%; /* Closer to edge on small screens */
+  }
+  .section-5-title { 
+    font-size: clamp(1.6rem, 8vw, 2.4rem);
+    line-height: 1.15; /* Slightly more breathing room */
+  }
+  .section-5-eyebrow { 
+    font-size: 0.65rem; 
+    max-width: 240px; /* Smaller max width for tiny screens */
+    margin-bottom: 14px; /* Slightly less spacing */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECTION 6 — isolated */
+.section-6 {
+  --section-6-accent: #9fc7db;
+  --section-6-bg: transparent;
+  background: var(--section-6-bg);
+  padding: 56px 0;
+}
+
+/* Desktop padding */
+@media (min-width: 992px) {
+  .section-6 {
+    padding: 88px 0;
+  }
+}
+
+/* Title & Subhead */
+.section-6-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1.02;
+  margin: 0 0 .2rem 0;
+  color: #0b1620;
+  font-weight: 500;
+}
+.section-6-subtle {
+  font-family: "Poppins", sans-serif;
+  font-size: .85rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(11,22,32,0.55);
+  margin-top: .3rem;
+}
+
+/* Portrait / left card */
+.section-6-portrait {
+  border-radius: 28px;
+  overflow: hidden;
+  display: block;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 18px 48px rgba(2,8,15,0.08);
+}
+.section-6-portrait-img {
+  width: 100%;
+  height: 560px; /* Fixed height for consistent sizing */
+  display: block;
+  object-fit: cover; /* Ensures proper cropping and aspect ratio */
+  border-radius: 0; /* container does rounding */
+}
+
+/* Steps list (right column) */
+.section-6-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding-top: .25rem;
+}
+
+/* Individual step */
+.section-6-step {
+  gap: 1rem;
+}
+
+/* Number */
+.section-6-step-num {
+  font-family: "Playfair Display", serif;
+  color: var(--section-6-accent);
+  font-size: 3rem;
+  line-height: 1;
+  min-width: 64px;
+  text-align: left;
+  margin-right: 0.6rem;
+  flex: 0 0 64px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Step content */
+.section-6-step-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: #07121a;
+  margin: 0;
+  font-weight: 600;
+}
+.section-6-step-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: rgba(3,19,34,0.65);
+  margin-top: .35rem;
+  line-height: 1.6;
+}
+
+/* Desktop fine-tuning */
+@media (min-width: 992px) {
+  .section-6-title { font-size: clamp(3rem, 4vw, 4.8rem); }
+  .section-6-step-num { font-size: 3.6rem; min-width: 86px; flex: 0 0 86px; }
+  .section-6-step-title { font-size: 1.02rem; }
+  .section-6-step-text { font-size: 0.98rem; }
+  .section-6-portrait { max-width: 520px; }
+  .section-6-portrait-img { height: 560px; }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .section-6-title { font-size: clamp(2.2rem, 4.6vw, 3.4rem); }
+  .section-6-step-num { font-size: 2.6rem; min-width: 70px; flex: 0 0 70px; }
+  .section-6-portrait { max-width: 520px; }
+  .section-6-portrait-img { height: 480px; } /* Fixed height for tablets */
+}
+
+/* Mobile stacking */
+@media (max-width: 767.98px) {
+  .section-6 {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+  .section-6-title { font-size: 2rem; text-align: left; margin-bottom: .6rem; }
+  .section-6-subtle { font-size: .78rem; text-align: left; margin-bottom: 1rem; }
+  .section-6-portrait { margin-bottom: 1rem; width: 100%; border-radius: 20px; }
+  .section-6-steps { gap: 1rem; }
+  .section-6-step-num { font-size: 2rem; min-width: 56px; flex: 0 0 56px; }
+  .section-6-step-title { font-size: 0.98rem; }
+  .section-6-step-text { font-size: 0.92rem; }
+  .section-6-portrait-img { height: 400px; } /* Fixed height for mobile */
+}
+
+/* small phones */
+@media (max-width: 420px) {
+  .section-6-title { font-size: 1.6rem; }
+  .section-6-step-num { font-size: 1.8rem; min-width: 48px; flex: 0 0 48px; }
+  .section-6-portrait-img { height: 350px; } /* Fixed height for small phones */
+}
+
+
+
+
+
+
+
+
+
+/* SECTION 7 — Services (isolated with section-7- prefix) */
+.section-7 { --s7-navy: #0f1d2e; --s7-blue: #9fc7db; --s7-gold: #f08916; }
+
+/* Card wrapper */
+.section-7-card {
+  background: var(--s7-navy);
+  border-radius: 36px;
+  padding: 56px 56px;
+  box-shadow: 0 20px 60px rgba(2,8,15,0.18);
+  max-width: 1180px;
+  margin: 0 auto;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Header */
+.section-7-title {
+  font-family: "Playfair Display", serif;
+  color: var(--s7-blue);
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Services list spacing */
+.section-7-list { 
+  margin-top: 24px; 
+}
+
+/* Each service row */
+.section-7-row { 
+  border: 0;
+  margin-bottom: 32px;
+}
+
+.section-7-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Row main flex layout - 2 columns */
+.section-7-row-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+/* Left column: title + description */
+.section-7-left { 
+  flex: 1;
+  min-width: 0;
+}
+
+/* Service title */
+.section-7-service-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+  color: #ffffff;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Description directly under title */
+.section-7-service-sub {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 4px;
+  line-height: 1.4;
+  max-width: 85%;
+}
+
+/* Right column: price labels */
+.section-7-right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Price styling */
+.section-7-price {
+  font-family: "Poppins", sans-serif;
+  color: var(--s7-gold);
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* Special styling for "free" label */
+.section-7-price--free {
+  font-style: italic;
+  text-transform: lowercase;
+  font-size: 0.9rem;
+}
+
+/* Divider line under each row */
+.section-7-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  width: 100%;
+}
+
+/* CTA wrapper and button */
+.section-7-cta-wrapper {
+  margin-top: 48px;
+  padding-top: 8px;
+}
+
+.section-7-cta-button {
+  display: block;
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+  padding: 18px 24px;
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.section-7-cta-button:hover {
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .section-7-card { padding: 40px 28px; border-radius: 28px; }
+  .section-7-service-title { font-size: 1.3rem; }
+  .section-7-price { font-size: 0.95rem; }
+  .section-7-cta-wrapper { margin-top: 36px; }
+}
+
+@media (max-width: 575.98px) {
+  .section-7-card { padding: 28px 18px; }
+  .section-7-title { font-size: 1.8rem; }
+  .section-7-list { margin-top: 20px; }
+  .section-7-row { margin-bottom: 24px; }
+  .section-7-row-main { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .section-7-service-sub { 
+    font-size: 0.88rem;
+    max-width: 100%;
+  }
+  .section-7-right {
+    align-self: flex-end;
+    margin-top: 4px;
+  }
+  .section-7-price { font-size: 0.9rem; }
+  .section-7-cta-wrapper { margin-top: 32px; }
+  .section-7-cta-button { 
+    padding: 16px 20px;
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* Section 8 — Testimonial slider (scoped) */
+
+/* layout & container */
+.section-8 { background: transparent; }
+.section-8-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+
+/* Slide box */
+.testimonial-slide { max-width: 920px; margin: 0 auto; color: var(--text-dark); }
+
+/* Avatar (circular) */
+.testimonial-avatar {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: inline-block;
+  border: 6px solid rgba(255,255,255,0.98);
+  box-shadow: 0 8px 30px rgba(3,19,34,0.08);
+}
+
+/* Quote: big serif, centered */
+.testimonial-quote {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 3.6vw, 2.6rem);   /* responsive scaling */
+  line-height: 1.02;
+  margin: 0 auto;
+  font-weight: 500;
+  color: var(--text-dark);
+  max-width: 880px;
+  padding: 0 20px;
+}
+
+/* Signature: script style (pale blue) */
+.testimonial-signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.4rem, 5.4vw, 4.2rem);
+  color: rgba(159,199,219,0.92);
+  margin-top: 18px;
+  letter-spacing: 0.02em;
+}
+
+/* Controls (prev/next) */
+.section8-control {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(3,19,34,0.12);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  color: rgba(3,19,34,0.9);
+  transition: background .12s ease, transform .12s ease, box-shadow .12s ease;
+}
+.section8-control:hover {
+  background: rgba(3,19,34,0.04);
+  transform: translateY(-50%) scale(1.03);
+  box-shadow: 0 6px 18px rgba(3,19,34,0.07);
+}
+.section8-control:focus { outline: 3px solid rgba(159,199,219,0.14); outline-offset: 2px; }
+
+/* left & right positions */
+.carousel-control-prev.section8-control { left: 20px; }
+.carousel-control-next.section8-control { right: 20px; }
+
+/* arrow icons (text content used) — style */
+.section8-control-icon { font-size: 1.25rem; line-height: 1; }
+
+/* small screens: move arrows closer and reduce avatar/quote sizes */
+@media (max-width: 991.98px) {
+  .testimonial-avatar { width: 90px; height: 90px; border-width: 5px; }
+  .testimonial-quote { font-size: clamp(1.25rem, 5.2vw, 1.6rem); padding: 0 12px; }
+  .testimonial-signature { font-size: clamp(1.8rem, 7.4vw, 2.6rem); margin-top: 12px; }
+  .carousel-control-prev.section8-control { left: 8px; }
+  .carousel-control-next.section8-control { right: 8px; }
+}
+
+/* extra-small phones */
+@media (max-width: 480px) {
+  .testimonial-avatar { width: 76px; height: 76px; }
+  .testimonial-quote { font-size: 1.05rem; }
+  .testimonial-signature { font-size: 1.9rem; }
+}
+
+/* subtle divider under section */
+.section-8-divider {
+  height: 1px;
+  background: rgba(3,19,34,0.06);
+  margin: 0 auto;
+  max-width: 1200px;
+  border-radius: 1px;
+}
+
+
+
+
+
+
+
+
+
+/* SECTION 8 — Free Guide */
+/* Scoped so styles don't leak. Uses site's root vars when available. */
+
+.section-8 {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: transparent;
+  color: var(--text-dark);
+}
+
+/* containers */
+.section-8 .section8-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  font-size: clamp(2.8rem, 5.2vw, 5.2rem); /* responsive */
+  line-height: 1.02;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+/* small strapline under the title */
+.section-8 .section8-sub {
+  font-family: "Poppins", sans-serif;
+  color: #b8c0c6;
+  font-size: 0.95rem;
+  margin: 0;
+  max-width: 520px;
+}
+
+/* Download word big & pale blue italic */
+.section-8 .section8-download {
+  font-family: "Playfair Display", serif;
+  color: var(--accent-light);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin-top: 1rem;
+  line-height: 1;
+}
+
+/* Right column number */
+.section-8 .section8-number {
+  font-family: "Playfair Display", serif;
+  color: var(--accent-light);
+  font-size: clamp(2.4rem, 4vw, 4.4rem);
+  line-height: 1;
+  white-space: nowrap;
+  margin-top: 6px; /* aligns number vertically with heading */
+}
+
+/* Right column heading */
+.section-8 .section8-heading {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  line-height: 1.06;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+/* Right column copy */
+.section-8 .section8-copy p {
+  color: #9ea7ad;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.6;
+  max-width: 36em;
+}
+
+/* Spacing tweaks for larger screens */
+@media (min-width: 1200px) {
+  .section-8 { padding-top: 96px; padding-bottom: 96px; }
+  .section-8 .section8-title { font-size: 5.6rem; }
+  .section-8 .section8-download { font-size: 4.2rem; }
+  .section-8 .section8-number { font-size: 4.8rem; margin-top: 10px; }
+  .section-8 .section8-heading { font-size: 2rem; }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width:1199.98px) {
+  .section-8 { padding-top: 72px; padding-bottom: 72px; }
+  .section-8 .section8-title { font-size: clamp(3rem, 6vw, 4.2rem); }
+  .section-8 .section8-download { font-size: clamp(2.6rem, 5.2vw, 3.6rem); }
+}
+
+/* Mobile: stacked center look */
+@media (max-width: 767.98px) {
+  .section-8 {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .section-8 .section8-title {
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    text-align: center;
+  }
+
+  .section-8 .section8-sub {
+    text-align: center;
+    margin-top: .5rem;
+  }
+
+  .section-8 .section8-download {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+  }
+
+  .section-8 .section8-number {
+    /* place number above heading on small screens for the stacked layout */
+    font-size: 2.6rem;
+    margin-top: 18px;
+    margin-right: .75rem;
+  }
+
+  .section-8 .section8-right { margin-top: 16px; }
+
+  .section-8 .section8-heading { font-size: 1.4rem; text-align: center; margin-top: 6px; }
+  .section-8 .section8-copy p { text-align: center; max-width: 100%; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ============================
+       SECTION-9: Contact + Footer
+       ============================ */
+    .section-9 {
+      /* CSS Variables for this section */
+      --bg-page: #fefcf7;
+      --dark-panel: #0f1d2e;
+      --muted-dark: rgba(255,255,255,0.08);
+      --muted-input: rgba(255,255,255,0.06);
+      --accent-blue: #9fc7db;
+      --cta: #f08916;
+      --text-on-dark: #dbe5ee;
+      --rounded-big: 28px;
+      
+      /* Section styling */
+      background: var(--dark-panel);
+      width: 100%;
+      padding: 64px 0 80px;
+      box-sizing: border-box;
+      border-radius: 24px;
+      margin-top: 48px;
+      box-shadow: 0 18px 60px rgba(2,8,15,0.16);
+      overflow: hidden;
+    }
+
+    /* center content and keep full-width background */
+    .section-9 .container {
+      max-width: 1200px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    /* top area: left content + right form - FORCE LAYOUT */
+    section.section-9 .container .top-row {
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 48px !important;
+      align-items: flex-end !important;
+      justify-content: space-between !important;
+      flex-wrap: nowrap !important;
+      margin-bottom: 48px !important;
+      width: 100% !important;
+    }
+
+    /* left content area (header + image) - FORCE LAYOUT */
+    section.section-9 .container .top-row .left-content {
+      flex: 0 0 44% !important;
+      max-width: 44% !important;
+      min-width: 44% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* contact header section */
+    section.section-9 .left-content .contact-header {
+      margin-bottom: 24px !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* portrait card (now inside left-content) - FORCE LAYOUT */
+    section.section-9 .left-content .portrait-card {
+      background: transparent !important;
+      border-radius: var(--rounded-big) !important;
+      overflow: hidden !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 18px 48px rgba(0,0,0,0.25) !important;
+      flex-grow: 1 !important;
+      width: 100% !important;
+    }
+
+    section.section-9 .portrait-card img {
+      width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      object-fit: cover !important;
+      border-radius: var(--rounded-big) !important;
+      max-height: 520px !important;
+    }
+
+    /* right form area - FORCE LAYOUT */
+    section.section-9 .container .top-row .contact-form {
+      flex: 0 0 52% !important;
+      max-width: 52% !important;
+      min-width: 52% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-end !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Ensure the form itself doesn't override the layout */
+    section.section-9 .contact-form form {
+      width: 100% !important;
+      margin: 0 !important;
+    }
+
+    /* heading typography (now in left content area) */
+    .section-9 .contact-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      color: #fff;
+      margin: 0 0 16px 0; /* Removed left margin since it's now in left content */
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+    }
+
+    .section-9 .contact-sub {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      margin: 0 0 0 0; /* Removed left margin since it's now in left content */
+      max-width: 100%; /* Allow full width in the left content area */
+      font-weight: 500;
+      text-transform: none;
+      line-height: 1.4;
+    }
+
+    /* form inputs (dark style) */
+    .section-9 .form-control {
+      background: var(--muted-input);
+      border: none;
+      color: var(--text-on-dark);
+      height: 44px;
+      padding: .6rem .85rem;
+      border-radius: 10px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+    .section-9 .form-control::placeholder { color: rgba(255,255,255,0.45); }
+
+    .section-9 .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+      padding-top: .9rem;
+      padding-bottom: .9rem;
+    }
+
+    /* button */
+    .section-9 .btn-contact {
+      background: var(--cta);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(240,137,22,0.25);
+    }
+
+    /* horizontal rule separation */
+    .section-9 .sep {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 36px 0 36px;
+    }
+
+    /* footer area layout */
+    .section-9 .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .section-9 .signature {
+      font-family: "Dancing Script", cursive;
+      color: #dfeaf2;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+    .section-9 .signature-sub {
+      font-size: .85rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: .02em;
+      margin-top: 6px;
+    }
+
+    .section-9 .footer-links a {
+      display:block;
+      color: rgba(255,255,255,0.85);
+      text-decoration:none;
+      margin-bottom: 10px;
+      font-size: .95rem;
+    }
+    .section-9 .footer-links a:hover { text-decoration: underline; color: var(--accent-blue); }
+
+    .section-9 .contact-info a { color: rgba(255,255,255,0.85); text-decoration: none; display:block; margin-bottom:8px; }
+    .section-9 .contact-info a:hover { color: var(--accent-blue); text-decoration: underline; }
+
+    /* small note on the bottom */
+    .section-9 .legal {
+      color: rgba(255,255,255,0.6);
+      font-size: .85rem;
+    }
+
+    /* responsive */
+    @media (max-width: 991.98px) {
+      .section-9 { padding: 48px 0 56px; border-radius: 20px; }
+      section.section-9 .container .top-row { 
+        gap: 28px !important; 
+        align-items: stretch !important; 
+        flex-direction: column !important; /* Stack vertically on mobile */
+        flex-wrap: wrap !important;
+      }
+      section.section-9 .container .top-row .left-content,
+      section.section-9 .container .top-row .contact-form { 
+        max-width: 100% !important; 
+        flex: 1 1 100% !important; 
+        min-width: 100% !important;
+      }
+      section.section-9 .container .top-row .left-content {
+        order: 1 !important; /* Header and image first */
+      }
+      section.section-9 .container .top-row .contact-form {
+        order: 2 !important; /* Form second */
+        justify-content: flex-start !important; /* Reset alignment on mobile */
+      }
+      .section-9 .portrait-card img { border-radius: 20px; max-height: 420px; }
+      .section-9 .contact-title { font-size: clamp(1.8rem, 6.4vw, 2.6rem); }
+      .section-9 .footer-grid { grid-template-columns: 1fr; text-align: left; gap: 18px; }
+      .section-9 .signature { font-size: 1.45rem; }
+    }
+
+    @media (min-width: 992px) {
+      /* Force desktop layout */
+      section.section-9 .container .top-row { 
+        flex-direction: row !important; 
+        flex-wrap: nowrap !important;
+      }
+      section.section-9 .container .top-row .left-content {
+        flex: 0 0 44% !important;
+        max-width: 44% !important;
+      }
+      section.section-9 .container .top-row .contact-form {
+        flex: 0 0 52% !important;
+        max-width: 52% !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-9 { padding: 36px 0 48px; border-radius: 16px; }
+      .section-9 .form-control { height: 46px; border-radius: 12px; }
+      .section-9 .form-textarea { min-height: 140px; }
+      .section-9 .btn-contact { width: 100%; padding: 14px; border-radius: 12px; }
+    }
