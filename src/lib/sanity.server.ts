@@ -1,16 +1,17 @@
 import { createClient } from '@sanity/client'
 
 // Get environment variables
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'mi9sygsi'
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 const token = process.env.SANITY_WRITE_TOKEN
+const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-11-26'
 
 // Ensure we have the required environment variables
-if (!projectId) {
-  throw new Error('Missing NEXT_PUBLIC_SANITY_PROJECT_ID')
+if (!projectId || projectId === 'your_project_id') {
+  console.warn('⚠️  Using fallback SANITY_PROJECT_ID - make sure to set NEXT_PUBLIC_SANITY_PROJECT_ID')
 }
-if (!dataset) {
-  throw new Error('Missing NEXT_PUBLIC_SANITY_DATASET')
+if (!dataset || dataset === 'your_dataset') {
+  console.warn('⚠️  Using fallback SANITY_DATASET - make sure to set NEXT_PUBLIC_SANITY_DATASET')
 }
 
 // Warning for missing or placeholder write token
@@ -28,7 +29,7 @@ if (!isValidToken) {
 export const serverClient = createClient({
   projectId,
   dataset,
-  apiVersion: '2025-01-01',
+  apiVersion,
   token: isValidToken ? token : undefined, // Only set token if valid
   useCdn: false, // Disable CDN for mutations
 })
